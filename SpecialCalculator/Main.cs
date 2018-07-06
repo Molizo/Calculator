@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace SpecialCalculator
 {
@@ -224,8 +225,45 @@ namespace SpecialCalculator
                 case '.':
                     buttonDecimal_Click(sender, e);
                     break;
+                case ',':
+                    goto case '.';
+                case (char)Keys.Back:
+                    buttonBackspace_Click(sender, e);
+                    break;
+                case '+':
+                    buttonAdd_Click(sender, e);
+                    break;
+                case '-':
+                    buttonSubstract_Click(sender, e);
+                    break;
+                case 'x':
+                    goto case '*';
+                case 'X':
+                    goto case 'x';
+                case '*':
+                    buttonMultiply_Click(sender, e);
+                    break;
+                case '÷':
+                    buttonDivide_Click(sender, e);
+                    break;
+                case '/':
+                    buttonDivideAbs_Click(sender, e);
+                    break;
+                case '%':
+                    buttonModulo_Click(sender, e);
+                    break;
+                case '^':
+                    buttonPower_Click(sender, e);
+                    break;
+                case '√':
+                    buttonModulo_Click(sender, e);
+                    break;
+                case '=':
+                    buttonEquals_Click(sender, e);
+                    break;
                 default:
                     Console.WriteLine("Invalid key pressed: " + key);
+                    SystemSounds.Asterisk.Play();
                     break;
             }
         }
