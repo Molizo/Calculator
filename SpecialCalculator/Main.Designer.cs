@@ -162,6 +162,7 @@
             this.buttonU7.TabIndex = 34;
             this.buttonU7.Text = "UNDEF";
             this.buttonU7.UseVisualStyleBackColor = true;
+            this.buttonU7.Visible = false;
             // 
             // buttonU6
             // 
@@ -172,6 +173,7 @@
             this.buttonU6.TabIndex = 33;
             this.buttonU6.Text = "UNDEF";
             this.buttonU6.UseVisualStyleBackColor = true;
+            this.buttonU6.Visible = false;
             // 
             // buttonU5
             // 
@@ -182,6 +184,7 @@
             this.buttonU5.TabIndex = 32;
             this.buttonU5.Text = "UNDEF";
             this.buttonU5.UseVisualStyleBackColor = true;
+            this.buttonU5.Visible = false;
             // 
             // buttonU4
             // 
@@ -192,6 +195,7 @@
             this.buttonU4.TabIndex = 31;
             this.buttonU4.Text = "UNDEF";
             this.buttonU4.UseVisualStyleBackColor = true;
+            this.buttonU4.Visible = false;
             // 
             // buttonU3
             // 
@@ -202,6 +206,7 @@
             this.buttonU3.TabIndex = 30;
             this.buttonU3.Text = "UNDEF";
             this.buttonU3.UseVisualStyleBackColor = true;
+            this.buttonU3.Visible = false;
             // 
             // buttonSqrt
             // 
@@ -212,7 +217,7 @@
             this.buttonSqrt.Size = new System.Drawing.Size(54, 54);
             this.buttonSqrt.TabIndex = 29;
             this.buttonSqrt.Text = "√";
-            this.toolTip1.SetToolTip(this.buttonSqrt, "Root");
+            this.toolTip1.SetToolTip(this.buttonSqrt, "Get root of number");
             this.buttonSqrt.UseVisualStyleBackColor = true;
             this.buttonSqrt.Click += new System.EventHandler(this.buttonSqrt_Click);
             // 
@@ -263,7 +268,7 @@
             this.buttonDecimal.Size = new System.Drawing.Size(54, 54);
             this.buttonDecimal.TabIndex = 25;
             this.buttonDecimal.Text = ".";
-            this.toolTip1.SetToolTip(this.buttonDecimal, "Change sign of number");
+            this.toolTip1.SetToolTip(this.buttonDecimal, "Add decimal point");
             this.buttonDecimal.UseVisualStyleBackColor = true;
             this.buttonDecimal.Click += new System.EventHandler(this.buttonDecimal_Click);
             // 
@@ -491,6 +496,7 @@
             this.buttonPlusMinus.Size = new System.Drawing.Size(54, 54);
             this.buttonPlusMinus.TabIndex = 7;
             this.buttonPlusMinus.Text = "±";
+            this.toolTip1.SetToolTip(this.buttonPlusMinus, "Change sign of number");
             this.buttonPlusMinus.UseVisualStyleBackColor = true;
             this.buttonPlusMinus.Click += new System.EventHandler(this.buttonPlusMinus_Click);
             // 
@@ -503,6 +509,7 @@
             this.buttonAbsolute.Size = new System.Drawing.Size(54, 54);
             this.buttonAbsolute.TabIndex = 8;
             this.buttonAbsolute.Text = "|x|";
+            this.toolTip1.SetToolTip(this.buttonAbsolute, "Get module of number");
             this.buttonAbsolute.UseVisualStyleBackColor = true;
             this.buttonAbsolute.Click += new System.EventHandler(this.buttonAbsolute_Click);
             // 
