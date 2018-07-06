@@ -45,12 +45,12 @@ namespace SpecialCalculator
         private void buttonClearEverything_Click(object sender, EventArgs e)
         {
             labelOperations.Text = String.Empty;
-            labelNumber.Text = String.Empty;
+            labelNumber.Text = "0";
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
         {
-            labelNumber.Text = String.Empty;
+            labelNumber.Text = "0";
         }
 
         private void buttonBackspace_Click(object sender, EventArgs e)
@@ -188,7 +188,46 @@ namespace SpecialCalculator
 
         private void Calculator_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            char key = e.KeyChar;
+            switch (key)
+            {
+                case '0':
+                    button0_Click(sender, e);
+                    break;
+                case '1':
+                    button1_Click(sender, e);
+                    break;
+                case '2':
+                    button2_Click(sender, e);
+                    break;
+                case '3':
+                    button3_Click(sender, e);
+                    break;
+                case '4':
+                    button4_Click(sender, e);
+                    break;
+                case '5':
+                    button5_Click(sender, e);
+                    break;
+                case '6':
+                    button6_Click(sender, e);
+                    break;
+                case '7':
+                    button7_Click(sender, e);
+                    break;
+                case '8':
+                    button8_Click(sender, e);
+                    break;
+                case '9':
+                    button9_Click(sender, e);
+                    break;
+                case '.':
+                    buttonDecimal_Click(sender, e);
+                    break;
+                default:
+                    Console.WriteLine("Invalid key pressed: " + key);
+                    break;
+            }
         }
     }
 }

@@ -66,10 +66,10 @@
             this.button9 = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonSubstract = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.labelOperations = new System.Windows.Forms.Label();
             this.labelNumber = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -580,10 +580,6 @@
             this.buttonSubstract.UseVisualStyleBackColor = true;
             this.buttonSubstract.Click += new System.EventHandler(this.buttonSubstract_Click);
             // 
-            // toolTip1
-            // 
-            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
@@ -621,12 +617,17 @@
             this.labelNumber.Text = "0";
             this.labelNumber.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 522);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.Name = "Calculator";
             this.ShowIcon = false;
