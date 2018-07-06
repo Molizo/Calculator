@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace SpecialCalculator
 {
-    public partial class Form1 : Form
+    public partial class Calculator : Form
     {
-        public Form1()
+        public Calculator()
         {
+            int CellWidth;
+            CellWidth = this.Size.Width / 5;
             InitializeComponent();
+        }
+
+        private void Form1_ResizeEnd(object sender, EventArgs e)
+        {
         }
     }
 }
