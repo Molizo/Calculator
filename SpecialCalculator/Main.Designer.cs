@@ -59,7 +59,7 @@
             this.buttonClearEverything = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
             this.buttonPlusMinus = new System.Windows.Forms.Button();
-            this.buttonU2 = new System.Windows.Forms.Button();
+            this.buttonAbsolute = new System.Windows.Forms.Button();
             this.buttonBackspace = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -131,14 +131,14 @@
             this.tableLayoutPanel2.Controls.Add(this.buttonMemoryStore, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonClearEverything, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.buttonClear, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.buttonPlusMinus, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.buttonU2, 3, 1);
             this.tableLayoutPanel2.Controls.Add(this.buttonBackspace, 4, 1);
             this.tableLayoutPanel2.Controls.Add(this.button7, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.button8, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.button9, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.buttonAdd, 3, 2);
             this.tableLayoutPanel2.Controls.Add(this.buttonSubstract, 4, 2);
+            this.tableLayoutPanel2.Controls.Add(this.buttonAbsolute, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.buttonPlusMinus, 2, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 101);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -494,15 +494,17 @@
             this.buttonPlusMinus.UseVisualStyleBackColor = true;
             this.buttonPlusMinus.Click += new System.EventHandler(this.buttonPlusMinus_Click);
             // 
-            // buttonU2
+            // buttonAbsolute
             // 
-            this.buttonU2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonU2.Location = new System.Drawing.Point(183, 63);
-            this.buttonU2.Name = "buttonU2";
-            this.buttonU2.Size = new System.Drawing.Size(54, 54);
-            this.buttonU2.TabIndex = 8;
-            this.buttonU2.Text = "UNDEF";
-            this.buttonU2.UseVisualStyleBackColor = true;
+            this.buttonAbsolute.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonAbsolute.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.buttonAbsolute.Location = new System.Drawing.Point(183, 63);
+            this.buttonAbsolute.Name = "buttonAbsolute";
+            this.buttonAbsolute.Size = new System.Drawing.Size(54, 54);
+            this.buttonAbsolute.TabIndex = 8;
+            this.buttonAbsolute.Text = "|x|";
+            this.buttonAbsolute.UseVisualStyleBackColor = true;
+            this.buttonAbsolute.Click += new System.EventHandler(this.buttonAbsolute_Click);
             // 
             // buttonBackspace
             // 
@@ -675,7 +677,7 @@
         private System.Windows.Forms.Button buttonClearEverything;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonPlusMinus;
-        private System.Windows.Forms.Button buttonU2;
+        private System.Windows.Forms.Button buttonAbsolute;
         private System.Windows.Forms.Button buttonBackspace;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;

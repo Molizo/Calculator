@@ -66,6 +66,8 @@ namespace SpecialCalculator
         {
             if (labelNumber.Text == "0")
                 labelNumber.Text = String.Empty;
+            else if (labelNumber.Text == "-0")
+                labelNumber.Text = "-";
             labelNumber.Text += "7";
         }
 
@@ -73,6 +75,8 @@ namespace SpecialCalculator
         {
             if (labelNumber.Text == "0")
                 labelNumber.Text = String.Empty;
+            else if (labelNumber.Text == "-0")
+                labelNumber.Text = "-";
             labelNumber.Text += "8";
         }
 
@@ -80,6 +84,8 @@ namespace SpecialCalculator
         {
             if (labelNumber.Text == "0")
                 labelNumber.Text = String.Empty;
+            else if (labelNumber.Text == "-0")
+                labelNumber.Text = "-";
             labelNumber.Text += "9";
         }
 
@@ -87,6 +93,8 @@ namespace SpecialCalculator
         {
             if (labelNumber.Text == "0")
                 labelNumber.Text = String.Empty;
+            else if (labelNumber.Text == "-0")
+                labelNumber.Text = "-";
             labelNumber.Text += "4";
         }
 
@@ -94,6 +102,8 @@ namespace SpecialCalculator
         {
             if (labelNumber.Text == "0")
                 labelNumber.Text = String.Empty;
+            else if (labelNumber.Text == "-0")
+                labelNumber.Text = "-";
             labelNumber.Text += "5";
         }
 
@@ -101,6 +111,8 @@ namespace SpecialCalculator
         {
             if (labelNumber.Text == "0")
                 labelNumber.Text = String.Empty;
+            else if (labelNumber.Text == "-0")
+                labelNumber.Text = "-";
             labelNumber.Text += "6";
         }
 
@@ -108,6 +120,8 @@ namespace SpecialCalculator
         {
             if (labelNumber.Text == "0")
                 labelNumber.Text = String.Empty;
+            else if (labelNumber.Text == "-0")
+                labelNumber.Text = "-";
             labelNumber.Text += "1";
         }
 
@@ -115,6 +129,8 @@ namespace SpecialCalculator
         {
             if (labelNumber.Text == "0")
                 labelNumber.Text = String.Empty;
+            else if (labelNumber.Text == "-0")
+                labelNumber.Text = "-";
             labelNumber.Text += "2";
         }
 
@@ -122,6 +138,8 @@ namespace SpecialCalculator
         {
             if (labelNumber.Text == "0")
                 labelNumber.Text = String.Empty;
+            else if (labelNumber.Text == "-0")
+                labelNumber.Text = "-";
             labelNumber.Text += "3";
         }
 
@@ -138,7 +156,8 @@ namespace SpecialCalculator
 
         private void buttonSubstract_Click(object sender, EventArgs e)
         {
-
+            if (labelNumber.Text == "0")
+                labelNumber.Text = "-0";
         }
 
         private void buttonMultiply_Click(object sender, EventArgs e)
@@ -184,7 +203,13 @@ namespace SpecialCalculator
 
         private void buttonPlusMinus_Click(object sender, EventArgs e)
         {
-
+            if (labelNumber.Text.Contains("-") == true)
+            {
+                string text = labelNumber.Text.ToString();
+                labelNumber.Text = text.Remove(0, 1);
+            }
+            else
+                labelNumber.Text = "-" + labelNumber.Text;
         }
 
         private void Calculator_KeyPress(object sender, KeyPressEventArgs e)
@@ -256,15 +281,27 @@ namespace SpecialCalculator
                     buttonPower_Click(sender, e);
                     break;
                 case '√':
-                    buttonModulo_Click(sender, e);
+                    buttonSqrt_Click(sender, e);
                     break;
                 case '=':
                     buttonEquals_Click(sender, e);
+                    break;
+                case '±':
+                    buttonPlusMinus_Click(sender, e);
                     break;
                 default:
                     Console.WriteLine("Invalid key pressed: " + key);
                     SystemSounds.Asterisk.Play();
                     break;
+            }
+        }
+
+        private void buttonAbsolute_Click(object sender, EventArgs e)
+        {
+            if (labelNumber.Text.Contains("-") == true)
+            {
+                string text = labelNumber.Text.ToString();
+                labelNumber.Text = text.Remove(0, 1);
             }
         }
     }
