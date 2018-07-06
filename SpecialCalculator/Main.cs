@@ -177,12 +177,18 @@ namespace SpecialCalculator
 
         private void buttonDecimal_Click(object sender, EventArgs e)
         {
-            labelNumber.Text += ".";
+            if(labelNumber.Text.Contains(".") == false)
+                labelNumber.Text += ".";
         }
 
         private void buttonPlusMinus_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Calculator_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
         }
     }
 }
