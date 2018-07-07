@@ -22,6 +22,7 @@ namespace SpecialCalculator
             checkPrime();
             checkSquare();
             checkCube();
+            checkPositive();
         }
 
 
@@ -57,7 +58,7 @@ namespace SpecialCalculator
                 double sqrt = System.Math.Sqrt(n);
                 checkedListBox1.SetItemChecked(3, Math.Abs(Math.Ceiling(sqrt) - Math.Floor(sqrt)) < Double.Epsilon);
                 if (n < 0)
-                    checkedListBox1.SetItemChecked(0, false);
+                    checkedListBox1.SetItemChecked(3, false);
             }
             catch (Exception e)
             {
@@ -74,13 +75,18 @@ namespace SpecialCalculator
                 double sqrt = System.Math.Pow(n,1.0/3.0);
                 checkedListBox1.SetItemChecked(4, Math.Abs(Math.Ceiling(sqrt) - Math.Floor(sqrt)) < Double.Epsilon);
                 if (n < 0)
-                    checkedListBox1.SetItemChecked(0, false);
+                    checkedListBox1.SetItemChecked(4, false);
             }
             catch (Exception e)
             {
                 Console.WriteLine("The number is not accepted");
                 checkedListBox1.SetItemChecked(4, false);
             }
+        }
+
+        private void checkPositive()
+        {
+            checkedListBox1.SetItemChecked(5, !(number.Contains("-")));
         }
 
     }

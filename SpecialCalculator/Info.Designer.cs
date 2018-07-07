@@ -71,7 +71,7 @@
             "Is a fibonacci number",
             "Is a palindrome",
             "Is a square",
-            "Is a qube",
+            "Is a cube",
             "Is positive"});
             this.checkedListBox1.Location = new System.Drawing.Point(3, 54);
             this.checkedListBox1.Name = "checkedListBox1";
