@@ -23,6 +23,7 @@ namespace SpecialCalculator
             checkSquare();
             checkCube();
             checkPositive();
+            checkPalindrome();
         }
 
 
@@ -87,6 +88,28 @@ namespace SpecialCalculator
         private void checkPositive()
         {
             checkedListBox1.SetItemChecked(5, !(number.Contains("-")));
+        }
+
+        private void checkPalindrome()
+        {
+            try
+            {
+                long n = Convert.ToInt64(number);
+                long m,reverse;
+                m = n;
+                reverse = 0;
+                while(m > 0)
+                {
+                    reverse = reverse * 10 + m % 10;
+                    m /= 10;
+                }
+                checkedListBox1.SetItemChecked(2, n == reverse);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The number is not accepted");
+                checkedListBox1.SetItemChecked(4, false);
+            }
         }
 
     }
