@@ -58,7 +58,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(296, 51);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Information about the number ....";
+            this.label1.Text = "Information about the number\r\nTESTNUMBER\r\n";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // checkedListBox1
@@ -87,6 +87,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Info";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
