@@ -14,7 +14,7 @@ namespace SpecialCalculator
 {
     public partial class Calculator : Form
     {
-        float memory = 0.0F;
+        double memory = 0.0F;
         public Calculator()
         {
             InitializeComponent();

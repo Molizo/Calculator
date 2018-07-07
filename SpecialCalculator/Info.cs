@@ -20,6 +20,7 @@ namespace SpecialCalculator
             InitializeComponent();
             label1.Text = "Information about the number\n" + number;
             checkPrime();
+            checkSquare();
         }
 
 
@@ -44,6 +45,21 @@ namespace SpecialCalculator
             {
                 Console.WriteLine("The number is not accepted");
                 checkedListBox1.SetItemChecked(0, false);
+            }
+        }
+
+        private void checkSquare()
+        {
+            try
+            {
+                long n = Convert.ToInt64(number);
+                double sqrt = System.Math.Sqrt(n);
+                checkedListBox1.SetItemChecked(3, Math.Abs(Math.Ceiling(sqrt) - Math.Floor(sqrt)) < Double.Epsilon);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The number is not accepted");
+                checkedListBox1.SetItemChecked(3, false);
             }
         }
     }
