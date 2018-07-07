@@ -32,7 +32,7 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonInfo = new System.Windows.Forms.Button();
-            this.buttonU6 = new System.Windows.Forms.Button();
+            this.buttonFactorial = new System.Windows.Forms.Button();
             this.buttonU5 = new System.Windows.Forms.Button();
             this.buttonU4 = new System.Windows.Forms.Button();
             this.buttonU3 = new System.Windows.Forms.Button();
@@ -91,6 +91,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.88889F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.11111F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(304, 522);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -105,7 +106,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel2.Controls.Add(this.buttonInfo, 4, 6);
-            this.tableLayoutPanel2.Controls.Add(this.buttonU6, 3, 6);
+            this.tableLayoutPanel2.Controls.Add(this.buttonFactorial, 3, 6);
             this.tableLayoutPanel2.Controls.Add(this.buttonU5, 2, 6);
             this.tableLayoutPanel2.Controls.Add(this.buttonU4, 1, 6);
             this.tableLayoutPanel2.Controls.Add(this.buttonU3, 0, 6);
@@ -168,17 +169,19 @@
             this.buttonInfo.UseVisualStyleBackColor = true;
             this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
             // 
-            // buttonU6
+            // buttonFactorial
             // 
-            this.buttonU6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonU6.Location = new System.Drawing.Point(183, 363);
-            this.buttonU6.Name = "buttonU6";
-            this.buttonU6.Size = new System.Drawing.Size(54, 54);
-            this.buttonU6.TabIndex = 33;
-            this.buttonU6.TabStop = false;
-            this.buttonU6.Text = "UNDEF";
-            this.buttonU6.UseVisualStyleBackColor = true;
-            this.buttonU6.Visible = false;
+            this.buttonFactorial.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonFactorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.buttonFactorial.Location = new System.Drawing.Point(183, 363);
+            this.buttonFactorial.Name = "buttonFactorial";
+            this.buttonFactorial.Size = new System.Drawing.Size(54, 54);
+            this.buttonFactorial.TabIndex = 33;
+            this.buttonFactorial.TabStop = false;
+            this.buttonFactorial.Text = "!";
+            this.toolTip1.SetToolTip(this.buttonFactorial, "Factorial");
+            this.buttonFactorial.UseVisualStyleBackColor = false;
+            this.buttonFactorial.Click += new System.EventHandler(this.buttonFactorial_Click);
             // 
             // buttonU5
             // 
@@ -691,7 +694,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button buttonInfo;
-        private System.Windows.Forms.Button buttonU6;
+        private System.Windows.Forms.Button buttonFactorial;
         private System.Windows.Forms.Button buttonU5;
         private System.Windows.Forms.Button buttonU4;
         private System.Windows.Forms.Button buttonU3;
