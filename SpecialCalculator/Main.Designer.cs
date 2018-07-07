@@ -42,7 +42,6 @@
             this.button0 = new System.Windows.Forms.Button();
             this.buttonDecimal = new System.Windows.Forms.Button();
             this.buttonModulo = new System.Windows.Forms.Button();
-            this.buttonDivideAbs = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -58,18 +57,19 @@
             this.buttonMemoryStore = new System.Windows.Forms.Button();
             this.buttonClearEverything = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
-            this.buttonPlusMinus = new System.Windows.Forms.Button();
-            this.buttonAbsolute = new System.Windows.Forms.Button();
             this.buttonBackspace = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonSubstract = new System.Windows.Forms.Button();
+            this.buttonPlusMinus = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.labelOperations = new System.Windows.Forms.Label();
             this.labelNumber = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonOpenParenthesis = new System.Windows.Forms.Button();
+            this.buttonCloseParenthesis = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -110,12 +110,9 @@
             this.tableLayoutPanel2.Controls.Add(this.buttonU4, 1, 6);
             this.tableLayoutPanel2.Controls.Add(this.buttonU3, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.buttonSqrt, 4, 5);
-            this.tableLayoutPanel2.Controls.Add(this.buttonPower, 3, 5);
             this.tableLayoutPanel2.Controls.Add(this.buttonEquals, 2, 5);
             this.tableLayoutPanel2.Controls.Add(this.button0, 1, 5);
             this.tableLayoutPanel2.Controls.Add(this.buttonDecimal, 0, 5);
-            this.tableLayoutPanel2.Controls.Add(this.buttonModulo, 4, 4);
-            this.tableLayoutPanel2.Controls.Add(this.buttonDivideAbs, 3, 4);
             this.tableLayoutPanel2.Controls.Add(this.button3, 2, 4);
             this.tableLayoutPanel2.Controls.Add(this.button2, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.button1, 0, 4);
@@ -137,8 +134,11 @@
             this.tableLayoutPanel2.Controls.Add(this.button9, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.buttonAdd, 3, 2);
             this.tableLayoutPanel2.Controls.Add(this.buttonSubstract, 4, 2);
-            this.tableLayoutPanel2.Controls.Add(this.buttonAbsolute, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.buttonPlusMinus, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.buttonModulo, 3, 4);
+            this.tableLayoutPanel2.Controls.Add(this.buttonPower, 3, 5);
+            this.tableLayoutPanel2.Controls.Add(this.buttonPlusMinus, 4, 4);
+            this.tableLayoutPanel2.Controls.Add(this.buttonOpenParenthesis, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.buttonCloseParenthesis, 3, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 101);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -150,6 +150,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(298, 418);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -223,7 +224,6 @@
             // 
             // buttonPower
             // 
-            this.buttonPower.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonPower.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.buttonPower.Location = new System.Drawing.Point(183, 303);
             this.buttonPower.Name = "buttonPower";
@@ -276,7 +276,7 @@
             // 
             this.buttonModulo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonModulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonModulo.Location = new System.Drawing.Point(243, 243);
+            this.buttonModulo.Location = new System.Drawing.Point(183, 243);
             this.buttonModulo.Name = "buttonModulo";
             this.buttonModulo.Size = new System.Drawing.Size(54, 54);
             this.buttonModulo.TabIndex = 24;
@@ -284,19 +284,6 @@
             this.toolTip1.SetToolTip(this.buttonModulo, "Modulo\r\nThis is the remainder after division.\r\n");
             this.buttonModulo.UseVisualStyleBackColor = true;
             this.buttonModulo.Click += new System.EventHandler(this.buttonModulo_Click);
-            // 
-            // buttonDivideAbs
-            // 
-            this.buttonDivideAbs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonDivideAbs.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonDivideAbs.Location = new System.Drawing.Point(183, 243);
-            this.buttonDivideAbs.Name = "buttonDivideAbs";
-            this.buttonDivideAbs.Size = new System.Drawing.Size(54, 54);
-            this.buttonDivideAbs.TabIndex = 23;
-            this.buttonDivideAbs.Text = "/";
-            this.toolTip1.SetToolTip(this.buttonDivideAbs, "Divide (Absolute)\r\nThis button divides and only returns the whole number.");
-            this.buttonDivideAbs.UseVisualStyleBackColor = true;
-            this.buttonDivideAbs.Click += new System.EventHandler(this.buttonDivideAbs_Click);
             // 
             // button3
             // 
@@ -487,32 +474,6 @@
             this.buttonClear.UseVisualStyleBackColor = true;
             this.buttonClear.Click += new System.EventHandler(this.buttonClear_Click);
             // 
-            // buttonPlusMinus
-            // 
-            this.buttonPlusMinus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonPlusMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonPlusMinus.Location = new System.Drawing.Point(123, 63);
-            this.buttonPlusMinus.Name = "buttonPlusMinus";
-            this.buttonPlusMinus.Size = new System.Drawing.Size(54, 54);
-            this.buttonPlusMinus.TabIndex = 7;
-            this.buttonPlusMinus.Text = "±";
-            this.toolTip1.SetToolTip(this.buttonPlusMinus, "Change sign of number");
-            this.buttonPlusMinus.UseVisualStyleBackColor = true;
-            this.buttonPlusMinus.Click += new System.EventHandler(this.buttonPlusMinus_Click);
-            // 
-            // buttonAbsolute
-            // 
-            this.buttonAbsolute.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonAbsolute.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.buttonAbsolute.Location = new System.Drawing.Point(183, 63);
-            this.buttonAbsolute.Name = "buttonAbsolute";
-            this.buttonAbsolute.Size = new System.Drawing.Size(54, 54);
-            this.buttonAbsolute.TabIndex = 8;
-            this.buttonAbsolute.Text = "|x|";
-            this.toolTip1.SetToolTip(this.buttonAbsolute, "Get module of number");
-            this.buttonAbsolute.UseVisualStyleBackColor = true;
-            this.buttonAbsolute.Click += new System.EventHandler(this.buttonAbsolute_Click);
-            // 
             // buttonBackspace
             // 
             this.buttonBackspace.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -589,6 +550,18 @@
             this.buttonSubstract.UseVisualStyleBackColor = true;
             this.buttonSubstract.Click += new System.EventHandler(this.buttonSubstract_Click);
             // 
+            // buttonPlusMinus
+            // 
+            this.buttonPlusMinus.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.buttonPlusMinus.Location = new System.Drawing.Point(243, 243);
+            this.buttonPlusMinus.Name = "buttonPlusMinus";
+            this.buttonPlusMinus.Size = new System.Drawing.Size(54, 54);
+            this.buttonPlusMinus.TabIndex = 7;
+            this.buttonPlusMinus.Text = "±";
+            this.toolTip1.SetToolTip(this.buttonPlusMinus, "Change sign of number");
+            this.buttonPlusMinus.UseVisualStyleBackColor = true;
+            this.buttonPlusMinus.Click += new System.EventHandler(this.buttonPlusMinus_Click);
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
@@ -630,6 +603,30 @@
             // 
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
+            // buttonOpenParenthesis
+            // 
+            this.buttonOpenParenthesis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonOpenParenthesis.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.buttonOpenParenthesis.Location = new System.Drawing.Point(123, 63);
+            this.buttonOpenParenthesis.Name = "buttonOpenParenthesis";
+            this.buttonOpenParenthesis.Size = new System.Drawing.Size(54, 54);
+            this.buttonOpenParenthesis.TabIndex = 35;
+            this.buttonOpenParenthesis.Text = "(";
+            this.buttonOpenParenthesis.UseVisualStyleBackColor = true;
+            this.buttonOpenParenthesis.Click += new System.EventHandler(this.buttonOpenParenthesis_Click);
+            // 
+            // buttonCloseParenthesis
+            // 
+            this.buttonCloseParenthesis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonCloseParenthesis.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.buttonCloseParenthesis.Location = new System.Drawing.Point(183, 63);
+            this.buttonCloseParenthesis.Name = "buttonCloseParenthesis";
+            this.buttonCloseParenthesis.Size = new System.Drawing.Size(54, 54);
+            this.buttonCloseParenthesis.TabIndex = 36;
+            this.buttonCloseParenthesis.Text = ")";
+            this.buttonCloseParenthesis.UseVisualStyleBackColor = true;
+            this.buttonCloseParenthesis.Click += new System.EventHandler(this.buttonCloseParenthesis_Click);
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -667,7 +664,6 @@
         private System.Windows.Forms.Button button0;
         private System.Windows.Forms.Button buttonDecimal;
         private System.Windows.Forms.Button buttonModulo;
-        private System.Windows.Forms.Button buttonDivideAbs;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
@@ -684,7 +680,6 @@
         private System.Windows.Forms.Button buttonClearEverything;
         private System.Windows.Forms.Button buttonClear;
         private System.Windows.Forms.Button buttonPlusMinus;
-        private System.Windows.Forms.Button buttonAbsolute;
         private System.Windows.Forms.Button buttonBackspace;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
@@ -695,6 +690,8 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label labelOperations;
         private System.Windows.Forms.Label labelNumber;
+        private System.Windows.Forms.Button buttonOpenParenthesis;
+        private System.Windows.Forms.Button buttonCloseParenthesis;
     }
 }
 

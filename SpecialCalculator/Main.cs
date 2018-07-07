@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using NCalc;
 
 namespace SpecialCalculator
 {
@@ -16,6 +17,7 @@ namespace SpecialCalculator
         public Calculator()
         {
             InitializeComponent();
+            labelOperations.Text = "2*(2-5)";
         }
 
         private void buttonMemoryAdd_Click(object sender, EventArgs e)
@@ -170,11 +172,6 @@ namespace SpecialCalculator
 
         }
 
-        private void buttonDivideAbs_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonModulo_Click(object sender, EventArgs e)
         {
 
@@ -192,7 +189,19 @@ namespace SpecialCalculator
 
         private void buttonEquals_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                Expression operations = new Expression(labelOperations.Text.ToString());
+                labelNumber.Text = operations.Evaluate().ToString();
+                labelOperations.Text = String.Empty;
+            }
+            catch(Exception exception)
+            {
+                SystemSounds.Asterisk.Play();
+                Console.WriteLine("Operation order cannot be empty!\n");
+                Console.WriteLine("Debugging information follows:");
+                Console.WriteLine(exception);
+            }
         }
 
         private void buttonDecimal_Click(object sender, EventArgs e)
@@ -272,8 +281,9 @@ namespace SpecialCalculator
                     buttonDivide_Click(sender, e);
                     break;
                 case '/':
-                    buttonDivideAbs_Click(sender, e);
-                    break;
+                    goto case '÷';
+                case ':':
+                    goto case '÷';
                 case '%':
                     buttonModulo_Click(sender, e);
                     break;
@@ -289,6 +299,20 @@ namespace SpecialCalculator
                 case '±':
                     buttonPlusMinus_Click(sender, e);
                     break;
+                case '(':
+                    buttonOpenParenthesis_Click(sender, e);
+                    break;
+                case ')':
+                    buttonCloseParenthesis_Click(sender, e);
+                    break;
+                case '[':
+                    goto case '(';
+                case ']':
+                    goto case ')';
+                case '{':
+                    goto case '(';
+                case '}':
+                    goto case ')';
                 default:
                     Console.WriteLine("Invalid key pressed: " + key);
                     SystemSounds.Asterisk.Play();
@@ -303,6 +327,16 @@ namespace SpecialCalculator
                 string text = labelNumber.Text.ToString();
                 labelNumber.Text = text.Remove(0, 1);
             }
+        }
+
+        private void buttonOpenParenthesis_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonCloseParenthesis_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
