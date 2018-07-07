@@ -20,10 +20,11 @@ namespace SpecialCalculator
             InitializeComponent();
             label1.Text = "Information about the number\n" + number;
             checkPrime();
+            checkFibonacci();
+            checkPalindrome();
             checkSquare();
             checkCube();
             checkPositive();
-            checkPalindrome();
         }
 
 
@@ -112,5 +113,25 @@ namespace SpecialCalculator
             }
         }
 
+        private void checkFibonacci()
+        {
+            try
+            {
+                long n = Convert.ToInt64(number);
+                long a = 0, b = 1;
+                while(a<n)
+                {
+                    long temp = a;
+                    a = b;
+                    b = temp + b;
+                }
+                checkedListBox1.SetItemChecked(1, a == n);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The number is not accepted");
+                checkedListBox1.SetItemChecked(1, false);
+            }
+        }
     }
 }
