@@ -21,6 +21,7 @@ namespace SpecialCalculator
             label1.Text = "Information about the number\n" + number;
             checkPrime();
             checkSquare();
+            checkCube();
         }
 
 
@@ -55,6 +56,8 @@ namespace SpecialCalculator
                 long n = Convert.ToInt64(number);
                 double sqrt = System.Math.Sqrt(n);
                 checkedListBox1.SetItemChecked(3, Math.Abs(Math.Ceiling(sqrt) - Math.Floor(sqrt)) < Double.Epsilon);
+                if (n < 0)
+                    checkedListBox1.SetItemChecked(0, false);
             }
             catch (Exception e)
             {
@@ -62,5 +65,23 @@ namespace SpecialCalculator
                 checkedListBox1.SetItemChecked(3, false);
             }
         }
+
+        private void checkCube()
+        {
+            try
+            {
+                long n = Convert.ToInt64(number);
+                double sqrt = System.Math.Pow(n,1.0/3.0);
+                checkedListBox1.SetItemChecked(4, Math.Abs(Math.Ceiling(sqrt) - Math.Floor(sqrt)) < Double.Epsilon);
+                if (n < 0)
+                    checkedListBox1.SetItemChecked(0, false);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The number is not accepted");
+                checkedListBox1.SetItemChecked(4, false);
+            }
+        }
+
     }
 }
