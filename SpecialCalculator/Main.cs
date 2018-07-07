@@ -1,20 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using NCalc;
+using System;
 using System.Media;
-using NCalc;
+using System.Windows.Forms;
 
 namespace SpecialCalculator
 {
     public partial class Calculator : Form
     {
-        double memory = 0.0F;
+        private double memory = 0.0F;
+
         public Calculator()
         {
             InitializeComponent();
@@ -27,7 +21,7 @@ namespace SpecialCalculator
                 buttonEquals_Click(sender, e);
                 memory += Convert.ToSingle(labelNumber.Text.ToString());
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 SystemSounds.Asterisk.Play();
                 Console.WriteLine("Error while manipulating memory!\n");
@@ -38,18 +32,18 @@ namespace SpecialCalculator
 
         private void buttonMemorySubstract_Click(object sender, EventArgs e)
         {
-                try
-                {
-                    buttonEquals_Click(sender, e);
-                    memory -= Convert.ToSingle(labelNumber.Text.ToString());
-                }
-                catch (Exception exception)
-                {
-                    SystemSounds.Asterisk.Play();
-                    Console.WriteLine("Error while manipulating memory!\n");
-                    Console.WriteLine("Debugging information follows:");
-                    Console.WriteLine(exception);
-                }
+            try
+            {
+                buttonEquals_Click(sender, e);
+                memory -= Convert.ToSingle(labelNumber.Text.ToString());
+            }
+            catch (Exception exception)
+            {
+                SystemSounds.Asterisk.Play();
+                Console.WriteLine("Error while manipulating memory!\n");
+                Console.WriteLine("Debugging information follows:");
+                Console.WriteLine(exception);
+            }
         }
 
         private void buttonMemoryRead_Click(object sender, EventArgs e)
@@ -226,7 +220,7 @@ namespace SpecialCalculator
                 labelNumber.Text = operations.Evaluate().ToString();
                 labelOperations.Text = String.Empty;
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 SystemSounds.Asterisk.Play();
                 Console.WriteLine("Error while processing operations!\n");
@@ -237,7 +231,7 @@ namespace SpecialCalculator
 
         private void buttonDecimal_Click(object sender, EventArgs e)
         {
-            if(labelNumber.Text.Contains(".") == false)
+            if (labelNumber.Text.Contains(".") == false)
                 labelNumber.Text += ".";
         }
 
@@ -260,47 +254,61 @@ namespace SpecialCalculator
                 case '0':
                     button0_Click(sender, e);
                     break;
+
                 case '1':
                     button1_Click(sender, e);
                     break;
+
                 case '2':
                     button2_Click(sender, e);
                     break;
+
                 case '3':
                     button3_Click(sender, e);
                     break;
+
                 case '4':
                     button4_Click(sender, e);
                     break;
+
                 case '5':
                     button5_Click(sender, e);
                     break;
+
                 case '6':
                     button6_Click(sender, e);
                     break;
+
                 case '7':
                     button7_Click(sender, e);
                     break;
+
                 case '8':
                     button8_Click(sender, e);
                     break;
+
                 case '9':
                     button9_Click(sender, e);
                     break;
+
                 case '.':
                     buttonDecimal_Click(sender, e);
                     break;
+
                 case ',':
                     goto case '.';
                 case (char)Keys.Back:
                     buttonBackspace_Click(sender, e);
                     break;
+
                 case '+':
                     buttonAdd_Click(sender, e);
                     break;
+
                 case '-':
                     buttonSubstract_Click(sender, e);
                     break;
+
                 case 'x':
                     goto case '*';
                 case 'X':
@@ -308,9 +316,11 @@ namespace SpecialCalculator
                 case '*':
                     buttonMultiply_Click(sender, e);
                     break;
+
                 case '÷':
                     buttonDivide_Click(sender, e);
                     break;
+
                 case '/':
                     goto case '÷';
                 case ':':
@@ -318,24 +328,31 @@ namespace SpecialCalculator
                 case '%':
                     buttonModulo_Click(sender, e);
                     break;
+
                 case '^':
                     buttonPower_Click(sender, e);
                     break;
+
                 case '√':
                     buttonSqrt_Click(sender, e);
                     break;
+
                 case '=':
                     buttonEquals_Click(sender, e);
                     break;
+
                 case '±':
                     buttonPlusMinus_Click(sender, e);
                     break;
+
                 case '(':
                     buttonOpenParenthesis_Click(sender, e);
                     break;
+
                 case ')':
                     buttonCloseParenthesis_Click(sender, e);
                     break;
+
                 case '[':
                     goto case '(';
                 case ']':
@@ -344,6 +361,34 @@ namespace SpecialCalculator
                     goto case '(';
                 case '}':
                     goto case ')';
+                case '!':
+                    buttonFactorial_Click(sender, e);
+                    break;
+
+                case 's':
+                    buttonSin_Click(sender, e);
+                    break;
+
+                case 'S':
+                    goto case 's';
+                case 'c':
+                    buttonSin_Click(sender, e);
+                    break;
+
+                case 'C':
+                    goto case 'c';
+                case 'l':
+                    buttonSin_Click(sender, e);
+                    break;
+
+                case 'L':
+                    goto case 'l';
+                case 'i':
+                    buttonSin_Click(sender, e);
+                    break;
+
+                case 'I':
+                    goto case 'i';
                 default:
                     Console.WriteLine("Invalid key pressed: " + key);
                     SystemSounds.Asterisk.Play();
@@ -376,6 +421,48 @@ namespace SpecialCalculator
         {
             Info infoWindow = new Info(labelNumber.Text);
             infoWindow.ShowDialog();
+        }
+
+        private void buttonFactorial_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                long n = Convert.ToInt64(labelNumber.Text.ToString());
+                if (n > 20)
+                {
+                    labelNumber.Text = "Too big for !";
+                    throw new Exception("Number is too big for factorial.");
+                }
+                long output = 1;
+                for (int i = 2; i <= n; i++)
+                    output *= i;
+                labelNumber.Text = output.ToString();
+            }
+            catch (Exception exception)
+            {
+                SystemSounds.Asterisk.Play();
+                Console.WriteLine("Input is not valid!\n");
+                Console.WriteLine("Debugging information follows:");
+                Console.WriteLine(exception);
+            }
+        }
+
+        private void buttonSin_Click(object sender, EventArgs e)
+        {
+            labelOperations.Text += "Sin(" + labelNumber.Text + ")";
+            labelNumber.Text = "0";
+        }
+
+        private void buttonCos_Click(object sender, EventArgs e)
+        {
+            labelOperations.Text += "Cos(" + labelNumber.Text + ")";
+            labelNumber.Text = "0";
+        }
+
+        private void buttonLog_Click(object sender, EventArgs e)
+        {
+            labelOperations.Text += "Log(" + labelNumber.Text + ",";
+            labelNumber.Text = "0";
         }
     }
 }
