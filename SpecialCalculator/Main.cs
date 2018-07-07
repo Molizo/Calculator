@@ -371,5 +371,11 @@ namespace SpecialCalculator
             labelOperations.Text += labelNumber.Text + ")";
             labelNumber.Text = "0";
         }
+
+        private void buttonInfo_Click(object sender, EventArgs e)
+        {
+            Info infoWindow = new Info(labelNumber.Text);
+            infoWindow.ShowDialog();
+        }
     }
 }

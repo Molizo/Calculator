@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonU7 = new System.Windows.Forms.Button();
+            this.buttonInfo = new System.Windows.Forms.Button();
             this.buttonU6 = new System.Windows.Forms.Button();
             this.buttonU5 = new System.Windows.Forms.Button();
             this.buttonU4 = new System.Windows.Forms.Button();
@@ -104,7 +104,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel2.Controls.Add(this.buttonU7, 4, 6);
+            this.tableLayoutPanel2.Controls.Add(this.buttonInfo, 4, 6);
             this.tableLayoutPanel2.Controls.Add(this.buttonU6, 3, 6);
             this.tableLayoutPanel2.Controls.Add(this.buttonU5, 2, 6);
             this.tableLayoutPanel2.Controls.Add(this.buttonU4, 1, 6);
@@ -154,17 +154,19 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(298, 418);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // buttonU7
+            // buttonInfo
             // 
-            this.buttonU7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonU7.Location = new System.Drawing.Point(243, 363);
-            this.buttonU7.Name = "buttonU7";
-            this.buttonU7.Size = new System.Drawing.Size(54, 54);
-            this.buttonU7.TabIndex = 34;
-            this.buttonU7.TabStop = false;
-            this.buttonU7.Text = "UNDEF";
-            this.buttonU7.UseVisualStyleBackColor = true;
-            this.buttonU7.Visible = false;
+            this.buttonInfo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.buttonInfo.Location = new System.Drawing.Point(243, 363);
+            this.buttonInfo.Name = "buttonInfo";
+            this.buttonInfo.Size = new System.Drawing.Size(54, 54);
+            this.buttonInfo.TabIndex = 34;
+            this.buttonInfo.TabStop = false;
+            this.buttonInfo.Text = "INFO";
+            this.toolTip1.SetToolTip(this.buttonInfo, "Get interesting facts about the number");
+            this.buttonInfo.UseVisualStyleBackColor = true;
+            this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
             // 
             // buttonU6
             // 
@@ -688,7 +690,7 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Button buttonU7;
+        private System.Windows.Forms.Button buttonInfo;
         private System.Windows.Forms.Button buttonU6;
         private System.Windows.Forms.Button buttonU5;
         private System.Windows.Forms.Button buttonU4;
