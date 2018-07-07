@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using NCalc;
 
 namespace SpecialCalculator
 {
     public partial class Calculator : Form
     {
+        float memory = 0.0F;
         public Calculator()
         {
             InitializeComponent();
@@ -20,27 +22,50 @@ namespace SpecialCalculator
 
         private void buttonMemoryAdd_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                buttonEquals_Click(sender, e);
+                memory += Convert.ToSingle(labelNumber.Text.ToString());
+            }
+            catch(Exception exception)
+            {
+                SystemSounds.Asterisk.Play();
+                Console.WriteLine("Error while manipulating memory!\n");
+                Console.WriteLine("Debugging information follows:");
+                Console.WriteLine(exception);
+            }
         }
 
         private void buttonMemorySubstract_Click(object sender, EventArgs e)
         {
-
+                try
+                {
+                    buttonEquals_Click(sender, e);
+                    memory -= Convert.ToSingle(labelNumber.Text.ToString());
+                }
+                catch (Exception exception)
+                {
+                    SystemSounds.Asterisk.Play();
+                    Console.WriteLine("Error while manipulating memory!\n");
+                    Console.WriteLine("Debugging information follows:");
+                    Console.WriteLine(exception);
+                }
         }
 
         private void buttonMemoryRead_Click(object sender, EventArgs e)
         {
-
+            labelNumber.Text = memory.ToString();
         }
 
         private void buttonMemoryClear_Click(object sender, EventArgs e)
         {
-
+            memory = 0.0F;
         }
 
         private void buttonMemoryStore_Click(object sender, EventArgs e)
         {
-
+            buttonEquals_Click(sender, e);
+            memory = Convert.ToSingle(labelNumber.Text.ToString());
         }
 
         private void buttonClearEverything_Click(object sender, EventArgs e)
@@ -151,48 +176,63 @@ namespace SpecialCalculator
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-
+            labelOperations.Text += labelNumber.Text + "+";
+            labelNumber.Text = "0";
         }
 
         private void buttonSubstract_Click(object sender, EventArgs e)
         {
-            if (labelNumber.Text == "0")
-                labelNumber.Text = "-0";
+            labelOperations.Text += labelNumber.Text + "-";
+            labelNumber.Text = "0";
         }
 
         private void buttonMultiply_Click(object sender, EventArgs e)
         {
-
+            labelOperations.Text += labelNumber.Text + "*";
+            labelNumber.Text = "0";
         }
 
         private void buttonDivide_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void buttonDivideAbs_Click(object sender, EventArgs e)
-        {
-
+            labelOperations.Text += labelNumber.Text + "/";
+            labelNumber.Text = "0";
         }
 
         private void buttonModulo_Click(object sender, EventArgs e)
         {
-
+            labelOperations.Text += labelNumber.Text + "%";
+            labelNumber.Text = "0";
         }
 
         private void buttonPower_Click(object sender, EventArgs e)
         {
-
+            labelOperations.Text += "Pow(" + labelNumber.Text + ",";
+            labelNumber.Text = "0";
         }
 
         private void buttonSqrt_Click(object sender, EventArgs e)
         {
-
+            labelOperations.Text += "Sqrt(" + labelNumber.Text + ")";
+            labelNumber.Text = "0";
         }
 
         private void buttonEquals_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (labelNumber.Text != "0")
+                    labelOperations.Text += labelNumber.Text;
+                Expression operations = new Expression(labelOperations.Text.ToString());
+                labelNumber.Text = operations.Evaluate().ToString();
+                labelOperations.Text = String.Empty;
+            }
+            catch(Exception exception)
+            {
+                SystemSounds.Asterisk.Play();
+                Console.WriteLine("Error while processing operations!\n");
+                Console.WriteLine("Debugging information follows:");
+                Console.WriteLine(exception);
+            }
         }
 
         private void buttonDecimal_Click(object sender, EventArgs e)
@@ -272,8 +312,9 @@ namespace SpecialCalculator
                     buttonDivide_Click(sender, e);
                     break;
                 case '/':
-                    buttonDivideAbs_Click(sender, e);
-                    break;
+                    goto case '÷';
+                case ':':
+                    goto case '÷';
                 case '%':
                     buttonModulo_Click(sender, e);
                     break;
@@ -289,6 +330,20 @@ namespace SpecialCalculator
                 case '±':
                     buttonPlusMinus_Click(sender, e);
                     break;
+                case '(':
+                    buttonOpenParenthesis_Click(sender, e);
+                    break;
+                case ')':
+                    buttonCloseParenthesis_Click(sender, e);
+                    break;
+                case '[':
+                    goto case '(';
+                case ']':
+                    goto case ')';
+                case '{':
+                    goto case '(';
+                case '}':
+                    goto case ')';
                 default:
                     Console.WriteLine("Invalid key pressed: " + key);
                     SystemSounds.Asterisk.Play();
@@ -303,6 +358,18 @@ namespace SpecialCalculator
                 string text = labelNumber.Text.ToString();
                 labelNumber.Text = text.Remove(0, 1);
             }
+        }
+
+        private void buttonOpenParenthesis_Click(object sender, EventArgs e)
+        {
+            labelOperations.Text += labelNumber.Text + "(";
+            labelNumber.Text = "0";
+        }
+
+        private void buttonCloseParenthesis_Click(object sender, EventArgs e)
+        {
+            labelOperations.Text += labelNumber.Text + ")";
+            labelNumber.Text = "0";
         }
     }
 }
