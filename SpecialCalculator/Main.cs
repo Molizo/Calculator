@@ -361,6 +361,34 @@ namespace SpecialCalculator
                     goto case '(';
                 case '}':
                     goto case ')';
+                case '!':
+                    buttonFactorial_Click(sender, e);
+                    break;
+
+                case 's':
+                    buttonSin_Click(sender, e);
+                    break;
+
+                case 'S':
+                    goto case 's';
+                case 'c':
+                    buttonSin_Click(sender, e);
+                    break;
+
+                case 'C':
+                    goto case 'c';
+                case 'l':
+                    buttonSin_Click(sender, e);
+                    break;
+
+                case 'L':
+                    goto case 'l';
+                case 'i':
+                    buttonSin_Click(sender, e);
+                    break;
+
+                case 'I':
+                    goto case 'i';
                 default:
                     Console.WriteLine("Invalid key pressed: " + key);
                     SystemSounds.Asterisk.Play();
@@ -417,6 +445,24 @@ namespace SpecialCalculator
                 Console.WriteLine("Debugging information follows:");
                 Console.WriteLine(exception);
             }
+        }
+
+        private void buttonSin_Click(object sender, EventArgs e)
+        {
+            labelOperations.Text += "Sin(" + labelNumber.Text + ")";
+            labelNumber.Text = "0";
+        }
+
+        private void buttonCos_Click(object sender, EventArgs e)
+        {
+            labelOperations.Text += "Cos(" + labelNumber.Text + ")";
+            labelNumber.Text = "0";
+        }
+
+        private void buttonLog_Click(object sender, EventArgs e)
+        {
+            labelOperations.Text += "Log(" + labelNumber.Text + ",";
+            labelNumber.Text = "0";
         }
     }
 }

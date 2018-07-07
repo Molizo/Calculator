@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using NCalc;
 
 namespace SpecialCalculator
 {
     public partial class Info : Form
     {
-        string number;
+        private string number;
+
         public Info(string s)
         {
             number = s;
@@ -27,25 +20,24 @@ namespace SpecialCalculator
             checkPositive();
         }
 
-
         private void checkPrime()
         {
             try
             {
                 long n = Convert.ToInt64(number);
                 checkedListBox1.SetItemChecked(0, true);
-                for (int i=2;i<=System.Math.Sqrt(n);i++)
+                for (int i = 2; i <= System.Math.Sqrt(n); i++)
                 {
-                    if(n%i==0)
+                    if (n % i == 0)
                     {
                         checkedListBox1.SetItemChecked(0, false);
                         break;
                     }
                 }
-                if(n<2)
+                if (n < 2)
                     checkedListBox1.SetItemChecked(0, false);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine("The number is not accepted");
                 checkedListBox1.SetItemChecked(0, false);
@@ -74,7 +66,7 @@ namespace SpecialCalculator
             try
             {
                 long n = Convert.ToInt64(number);
-                double sqrt = System.Math.Pow(n,1.0/3.0);
+                double sqrt = System.Math.Pow(n, 1.0 / 3.0);
                 checkedListBox1.SetItemChecked(4, Math.Abs(Math.Ceiling(sqrt) - Math.Floor(sqrt)) < Double.Epsilon);
                 if (n < 0)
                     checkedListBox1.SetItemChecked(4, false);
@@ -96,10 +88,10 @@ namespace SpecialCalculator
             try
             {
                 long n = Convert.ToInt64(number);
-                long m,reverse;
+                long m, reverse;
                 m = n;
                 reverse = 0;
-                while(m > 0)
+                while (m > 0)
                 {
                     reverse = reverse * 10 + m % 10;
                     m /= 10;
@@ -119,7 +111,7 @@ namespace SpecialCalculator
             {
                 long n = Convert.ToInt64(number);
                 long a = 0, b = 1;
-                while(a<n)
+                while (a < n)
                 {
                     long temp = a;
                     a = b;

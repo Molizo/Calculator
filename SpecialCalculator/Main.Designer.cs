@@ -33,9 +33,9 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonInfo = new System.Windows.Forms.Button();
             this.buttonFactorial = new System.Windows.Forms.Button();
-            this.buttonU5 = new System.Windows.Forms.Button();
-            this.buttonU4 = new System.Windows.Forms.Button();
-            this.buttonU3 = new System.Windows.Forms.Button();
+            this.buttonLog = new System.Windows.Forms.Button();
+            this.buttonCos = new System.Windows.Forms.Button();
+            this.buttonSin = new System.Windows.Forms.Button();
             this.buttonSqrt = new System.Windows.Forms.Button();
             this.buttonEquals = new System.Windows.Forms.Button();
             this.button0 = new System.Windows.Forms.Button();
@@ -107,9 +107,9 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tableLayoutPanel2.Controls.Add(this.buttonInfo, 4, 6);
             this.tableLayoutPanel2.Controls.Add(this.buttonFactorial, 3, 6);
-            this.tableLayoutPanel2.Controls.Add(this.buttonU5, 2, 6);
-            this.tableLayoutPanel2.Controls.Add(this.buttonU4, 1, 6);
-            this.tableLayoutPanel2.Controls.Add(this.buttonU3, 0, 6);
+            this.tableLayoutPanel2.Controls.Add(this.buttonLog, 2, 6);
+            this.tableLayoutPanel2.Controls.Add(this.buttonCos, 1, 6);
+            this.tableLayoutPanel2.Controls.Add(this.buttonSin, 0, 6);
             this.tableLayoutPanel2.Controls.Add(this.buttonSqrt, 4, 5);
             this.tableLayoutPanel2.Controls.Add(this.buttonEquals, 2, 5);
             this.tableLayoutPanel2.Controls.Add(this.button0, 1, 5);
@@ -180,44 +180,47 @@
             this.buttonFactorial.TabStop = false;
             this.buttonFactorial.Text = "!";
             this.toolTip1.SetToolTip(this.buttonFactorial, "Factorial");
-            this.buttonFactorial.UseVisualStyleBackColor = false;
+            this.buttonFactorial.UseVisualStyleBackColor = true;
             this.buttonFactorial.Click += new System.EventHandler(this.buttonFactorial_Click);
             // 
-            // buttonU5
+            // buttonLog
             // 
-            this.buttonU5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonU5.Location = new System.Drawing.Point(123, 363);
-            this.buttonU5.Name = "buttonU5";
-            this.buttonU5.Size = new System.Drawing.Size(54, 54);
-            this.buttonU5.TabIndex = 32;
-            this.buttonU5.TabStop = false;
-            this.buttonU5.Text = "UNDEF";
-            this.buttonU5.UseVisualStyleBackColor = true;
-            this.buttonU5.Visible = false;
+            this.buttonLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buttonLog.Location = new System.Drawing.Point(123, 363);
+            this.buttonLog.Name = "buttonLog";
+            this.buttonLog.Size = new System.Drawing.Size(54, 54);
+            this.buttonLog.TabIndex = 32;
+            this.buttonLog.TabStop = false;
+            this.buttonLog.Text = "LOG";
+            this.buttonLog.UseVisualStyleBackColor = true;
+            this.buttonLog.Click += new System.EventHandler(this.buttonLog_Click);
             // 
-            // buttonU4
+            // buttonCos
             // 
-            this.buttonU4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonU4.Location = new System.Drawing.Point(63, 363);
-            this.buttonU4.Name = "buttonU4";
-            this.buttonU4.Size = new System.Drawing.Size(54, 54);
-            this.buttonU4.TabIndex = 31;
-            this.buttonU4.TabStop = false;
-            this.buttonU4.Text = "UNDEF";
-            this.buttonU4.UseVisualStyleBackColor = true;
-            this.buttonU4.Visible = false;
+            this.buttonCos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonCos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buttonCos.Location = new System.Drawing.Point(63, 363);
+            this.buttonCos.Name = "buttonCos";
+            this.buttonCos.Size = new System.Drawing.Size(54, 54);
+            this.buttonCos.TabIndex = 31;
+            this.buttonCos.TabStop = false;
+            this.buttonCos.Text = "COS";
+            this.buttonCos.UseVisualStyleBackColor = true;
+            this.buttonCos.Click += new System.EventHandler(this.buttonCos_Click);
             // 
-            // buttonU3
+            // buttonSin
             // 
-            this.buttonU3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonU3.Location = new System.Drawing.Point(3, 363);
-            this.buttonU3.Name = "buttonU3";
-            this.buttonU3.Size = new System.Drawing.Size(54, 54);
-            this.buttonU3.TabIndex = 30;
-            this.buttonU3.TabStop = false;
-            this.buttonU3.Text = "UNDEF";
-            this.buttonU3.UseVisualStyleBackColor = true;
-            this.buttonU3.Visible = false;
+            this.buttonSin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.buttonSin.Location = new System.Drawing.Point(3, 363);
+            this.buttonSin.Name = "buttonSin";
+            this.buttonSin.Size = new System.Drawing.Size(54, 54);
+            this.buttonSin.TabIndex = 30;
+            this.buttonSin.TabStop = false;
+            this.buttonSin.Text = "SIN";
+            this.buttonSin.UseVisualStyleBackColor = true;
+            this.buttonSin.Click += new System.EventHandler(this.buttonSin_Click);
             // 
             // buttonSqrt
             // 
@@ -695,9 +698,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button buttonInfo;
         private System.Windows.Forms.Button buttonFactorial;
-        private System.Windows.Forms.Button buttonU5;
-        private System.Windows.Forms.Button buttonU4;
-        private System.Windows.Forms.Button buttonU3;
+        private System.Windows.Forms.Button buttonLog;
+        private System.Windows.Forms.Button buttonCos;
+        private System.Windows.Forms.Button buttonSin;
         private System.Windows.Forms.Button buttonSqrt;
         private System.Windows.Forms.Button buttonPower;
         private System.Windows.Forms.Button buttonEquals;
