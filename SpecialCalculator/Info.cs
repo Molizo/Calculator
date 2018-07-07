@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NCalc;
 
 namespace SpecialCalculator
 {
@@ -21,12 +22,29 @@ namespace SpecialCalculator
             checkPrime();
         }
 
+
         private void checkPrime()
         {
-            long n = Convert.ToInt64(number);
-            if (n.ToString() == number)
+            try
+            {
+                long n = Convert.ToInt64(number);
                 checkedListBox1.SetItemChecked(0, true);
-            Console.WriteLine(number + "|" + n);
+                for (int i=2;i<=System.Math.Sqrt(n);i++)
+                {
+                    if(n%i==0)
+                    {
+                        checkedListBox1.SetItemChecked(0, false);
+                        break;
+                    }
+                }
+                if(n<2)
+                    checkedListBox1.SetItemChecked(0, false);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("The number is not accepted");
+                checkedListBox1.SetItemChecked(0, false);
+            }
         }
     }
 }
